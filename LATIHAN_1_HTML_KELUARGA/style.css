@@ -1,0 +1,147 @@
+* { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    background: #e8eef6;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    background: #2c5282;
+    color: #fff;
+    text-align: center;
+    padding: 30px 15px 25px;
+    border-bottom: 5px solid #f5f3f3;
+  }
+  header h1 { margin: 0 0 8px; font-size: 28px; }
+  header p { margin: 4px 0; }
+  header .motto { font-style: italic; color: #d6e4f5; margin-bottom: 18px; }
+          header img {
+    width: 450px;
+    height: 300px;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: 55% 20%;
+    border: 4px solid #fff;
+    border-radius: 6px;
+    margin-top: 5px;
+  }
+
+  /* ===== MENU ===== */
+  nav {
+    background: #1a365d;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  nav a {
+    display: inline-block;
+    padding: 14px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  nav a:hover { background: #c0392b; }
+
+  /* ===== ISI ===== */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px 15px 30px;
+  }
+
+  section {
+    --warna: #2c5282;
+    --muda: #eaf1fb;
+    background: #fff;
+    border: 1px solid #cfd8e3;
+    border-top: 6px solid var(--warna);
+    border-radius: 4px;
+    padding: 20px 25px 25px;
+    margin-top: 25px;
+  }
+  section h2 {
+    margin: 0 0 15px;
+    color: var(--warna);
+    text-align: center;
+    font-size: 26px;
+  }
+  section h3 {
+    margin: 25px 0 10px;
+    color: #444;
+    font-size: 18px;
+    padding-left: 10px;
+    border-left: 5px solid var(--warna);
+  }
+  section p { text-align: center; }
+
+  /* Warna tiap anggota */
+  #ayah   { --warna: #2471a3; --muda: #eaf2f8; }
+  #ibu    { --warna: #2471a3; --muda: #fce4ec; }
+  #saya   { --warna: #2471a3; --muda: #e8f8f0; }
+  #adik   { --warna: #2471a3; --muda: #fef5e0; }
+  #alamat { --warna: #2471a3; --muda: #fdecea; }
+
+  /* Foto */
+  .foto { text-align: center; margin-bottom: 10px; }
+  .foto img {
+    height: 220px;
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;
+    border: 4px solid var(--warna);
+    border-radius: 6px;
+  }
+
+  /* ===== TABEL ===== */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 5px;
+  }
+  th, td {
+    border: 1px solid #c8d0da;
+    padding: 9px 12px;
+    text-align: left;
+  }
+  th { background: var(--warna); color: #fff; }
+  tr:nth-child(even) td { background: #f6f8fb; }
+  tr:hover td { background: var(--muda); }
+
+  /* Tabel biodata: kolom kiri jadi label */
+  table.biodata td:first-child {
+    width: 35%;
+    font-weight: bold;
+    background: var(--muda);
+  }
+  table.biodata th { text-align: center; }
+
+  address { font-style: normal; text-align: center; line-height: 1.8; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #1a365d;
+    color: #fff;
+    text-align: center;
+    padding: 20px 15px;
+    border-top: 5px solid #f7f3f3;
+  }
+  footer a { color: #ffd9d4; }
+  footer p { margin: 5px 0; }
+
+  /* ===== HP ===== */
+  @media (max-width: 600px) {
+    header h1 { font-size: 22px; }
+    nav a { padding: 10px 11px; font-size: 14px; }
+    section { padding: 15px; }
+    section h2 { font-size: 22px; }
+    th, td { padding: 7px 8px; font-size: 14px; }
+    .foto img { height: 180px; }
+  }

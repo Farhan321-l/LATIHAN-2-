@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Test Cara Menulis CSS</title>
+
+    <!-- 2. Internal CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: darkblue;
+        }
+        .internal {
+            background-color: lightyellow;
+            padding: 10px;
+            border: 2px solid orange;
+        }
+    </style>
+
+    <!-- 3. External CSS -->
+    <link rel="stylesheet" href="post-test.css">
+</head>
+<body>
+    <h1>Cara Menulis CSS</h1>
+
+    <!-- 1. Inline CSS -->
+    <p style="color: red; font-weight: bold;">
+        1. Paragraf ini memakai Inline CSS (atribut style pada tag).
+    </p>
+
+    <div class="internal">
+        2. Kotak ini memakai Internal CSS (tag style di dalam head).
+    </div>
+
+    <div class="eksternal">
+        3. Kotak ini memakai External CSS (file post-test.css).
+    </div>
+</body>
+</html>

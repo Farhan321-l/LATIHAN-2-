@@ -1,0 +1,124 @@
+/* latihan.css - dipakai Latihan 01 sampai 05 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 24px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    color: #0a3d7c;
+    margin-bottom: 4px;
+}
+
+h2 {
+    color: #1565c0;
+    margin-top: 0;
+}
+
+hr {
+    border: none;
+    border-top: 3px solid #d4a017;
+    margin: 16px 0 24px;
+}
+
+article {
+    background-color: white;
+    padding: 20px 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+article img {
+    max-width: 100%;
+    height: auto;
+}
+
+dt {
+    font-weight: bold;
+    color: #0a3d7c;
+    margin-top: 12px;
+}
+
+dd {
+    margin-left: 0;
+    text-align: justify;
+}
+
+ol li, ul li {
+    margin-bottom: 6px;
+}
+
+/* Tabel (Latihan 04) */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+}
+
+caption {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+    color: #0a3d7c;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #0a3d7c;
+    color: white;
+}
+
+tr:nth-child(even) td {
+    background-color: #f0f4fa;
+}
+
+/* Form (Latihan 05) */
+fieldset {
+    background-color: white;
+    border: 2px solid #0a3d7c;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+form td {
+    padding: 6px 8px;
+    border: none;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="number"],
+textarea,
+select {
+    padding: 6px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    width: 220px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    background-color: #0a3d7c;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #d4a017;
+}

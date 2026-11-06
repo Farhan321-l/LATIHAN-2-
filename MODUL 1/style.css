@@ -1,0 +1,18 @@
+/* ===== HALAMAN SAMPUL MODUL ===== */
+.hero-modul { margin-top: 26px; }
+
+.daftar li { margin-bottom: 10px; }
+.daftar a {
+  display: block;
+  padding: 14px 18px;
+  background: #f6f8fb;
+  border: 1px solid #e1e6ee;
+  border-left: 5px solid #d4a017;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #0b3a7a;
+}
+.daftar a:hover {
+  background: #eaf1fb;
+  border-left-color: #0b3a7a;
+}

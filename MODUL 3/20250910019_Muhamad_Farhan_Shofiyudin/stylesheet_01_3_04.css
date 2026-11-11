@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #efe9da;
+  background-image: radial-gradient(#d9d0b6 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+body {
+  max-width: 860px;
+  margin: 40px auto;
+  padding: 40px 44px 36px;
+  background: #fff;
+  color: #1c2b3a;
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+  border: 2px solid #1c2b3a;
+  border-top: 10px solid #c9a227;
+  box-shadow: 10px 10px 0 #1c2b3a;
+  overflow-x: auto;
+}
+
+/* ===== Kepala (menimpa tag <font size>) ===== */
+body > br {
+  display: none;
+}
+
+font {
+  display: block;
+}
+
+font[size="7"] {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+font[size="5"] {
+  margin-top: 6px;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #5b6b7a;
+}
+
+font[size="3"] {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: #3d4c5a;
+}
+
+hr {
+  height: 3px;
+  margin: 28px 0;
+  border: 0;
+  background: #1c2b3a;
+}
+
+/* ===== Tabel ===== */
+table {
+  width: 100%;
+  border: 0;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+caption {
+  margin-bottom: 14px;
+  text-align: left;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #9a7b10;
+}
+
+th {
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #fff;
+  background: #1c2b3a;
+  border: 1px solid #1c2b3a;
+}
+
+td {
+  padding: 12px 14px;
+  border: 1px solid #d9d0b6;
+}
+
+tr:nth-child(even) td {
+  background: #faf8f3;
+}
+
+tr:hover td {
+  background: #f6e9b8;
+}
+
+td:first-child,
+th:first-child {
+  width: 56px;
+  text-align: center;
+}
+
+td:first-child {
+  font-weight: 700;
+  color: #9a7b10;
+}
+
+@media (max-width: 600px) {
+  body {
+    margin: 16px;
+    padding: 26px 18px;
+    box-shadow: 6px 6px 0 #1c2b3a;
+  }
+
+  font[size="7"] {
+    font-size: 1.9rem;
+  }
+
+  th, td {
+    padding: 10px 8px;
+    font-size: 0.85rem;
+  }
+}

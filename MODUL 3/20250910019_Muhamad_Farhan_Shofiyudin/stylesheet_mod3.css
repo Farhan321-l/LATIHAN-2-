@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f1f5fb;
+  color: #1e293b;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Header ===== */
+.header {
+  background: linear-gradient(135deg, #0b4ca3, #0a2f6b);
+  color: #fff;
+  text-align: center;
+  padding: 50px 20px 60px;
+  border-bottom: 5px solid #d4a017;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+
+.header p {
+  opacity: 0.9;
+}
+
+/* ===== Isi ===== */
+.wadah {
+  width: 100%;
+  max-width: 800px;
+  margin: -30px auto 40px;
+  padding: 0 16px;
+  flex: 1;
+}
+
+.judul {
+  color: #0b4ca3;
+  margin: 30px 0 16px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid #d4a017;
+  display: inline-block;
+}
+
+/* ===== Tombol utama ===== */
+.utama {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #1e293b;
+  box-shadow: 0 6px 20px rgba(11, 76, 163, 0.15);
+  border-left: 6px solid #d4a017;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.utama:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(11, 76, 163, 0.25);
+}
+
+.utama .ikon {
+  font-size: 2rem;
+}
+
+.utama strong {
+  display: block;
+  font-size: 1.15rem;
+  color: #0b4ca3;
+}
+
+.utama small {
+  color: #64748b;
+}
+
+/* ===== Kartu latihan ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.kartu {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff;
+  padding: 16px 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #1e293b;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, background 0.2s, color 0.2s;
+}
+
+.kartu:hover {
+  transform: translateY(-4px);
+  background: #0b4ca3;
+  color: #fff;
+}
+
+.nomor {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #d4a017;
+  color: #fff;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ===== Tombol kembali ===== */
+.kembali {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 22px;
+  border: 2px solid #0b4ca3;
+  border-radius: 8px;
+  color: #0b4ca3;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+
+.kembali:hover {
+  background: #0b4ca3;
+  color: #fff;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: #0a2f6b;
+  color: #fff;
+  text-align: center;
+  padding: 16px;
+  font-size: 0.9rem;
+}
+
+/* ===== HP ===== */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 1.7rem;
+  }
+}

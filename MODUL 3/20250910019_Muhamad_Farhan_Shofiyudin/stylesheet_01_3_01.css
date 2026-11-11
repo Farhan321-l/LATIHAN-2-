@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #efe9da;
+  background-image: radial-gradient(#d9d0b6 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+body {
+  max-width: 760px;
+  margin: 40px auto;
+  padding: 40px 44px 36px;
+  background: #fff;
+  color: #1c2b3a;
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.7;
+  border: 2px solid #1c2b3a;
+  border-top: 10px solid #c9a227;
+  box-shadow: 10px 10px 0 #1c2b3a;
+}
+
+/* ===== Kepala ===== */
+body > h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.5rem;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+body > h2 {
+  margin: 6px 0 0;
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-style: italic;
+  color: #5b6b7a;
+}
+
+body > p {
+  margin: 20px 0 0;
+  font-size: 0.95rem;
+  color: #3d4c5a;
+}
+
+hr {
+  height: 3px;
+  margin: 28px 0;
+  border: 0;
+  background: #1c2b3a;
+}
+
+/* ===== Visi dan Misi ===== */
+article h1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 22px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #1c2b3a;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+article h1::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: #c9a227;
+}
+
+dt {
+  margin-top: 26px;
+  display: inline-block;
+  padding: 3px 12px;
+  background: #1c2b3a;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+dt:first-child {
+  margin-top: 0;
+}
+
+dd {
+  margin: 12px 0 0;
+}
+
+dd:nth-of-type(1) {
+  padding: 4px 0 4px 20px;
+  border-left: 4px solid #c9a227;
+  font-family: Georgia, serif;
+  font-size: 1.08rem;
+  font-style: italic;
+}
+
+ol {
+  margin: 0;
+  padding-left: 24px;
+}
+
+ol li {
+  margin-bottom: 14px;
+  padding-left: 6px;
+}
+
+ol li::marker {
+  font-weight: 700;
+  color: #9a7b10;
+}
+
+@media (max-width: 520px) {
+  body {
+    margin: 16px;
+    padding: 26px 20px;
+    box-shadow: 6px 6px 0 #1c2b3a;
+  }
+
+  body > h1 {
+    font-size: 1.9rem;
+  }
+}

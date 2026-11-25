@@ -89,36 +89,65 @@ body {
   gap: 14px;
 }
 
+/* ===== Kartu latihan (gaya editorial) ===== */
 .kartu {
+  position: relative;
   display: flex;
-  align-items: center;
-  gap: 14px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
   background: #fff;
-  padding: 16px 18px;
-  border-radius: 12px;
+  padding: 16px 44px 16px 20px;
+  border-radius: 10px;
+  border-left: 3px solid #e2e8f0;
   text-decoration: none;
   color: #1e293b;
   font-weight: 600;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s, background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
 }
 
-.kartu:hover {
-  transform: translateY(-4px);
+/* panah kecil di kanan */
+.nomor[data-n]::before {
+  content: attr(data-n);
+  position: absolute;
+  right: 16px;
+  bottom: -6px;
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(11, 76, 163, 0.07);
+  pointer-events: none;
+}
+.kartu:hover .nomor[data-n]::before { color: rgba(255, 255, 255, 0.12); }
+.kartu:hover,
+.kartu:focus-visible {
+  transform: translateY(-3px);
   background: #0b4ca3;
   color: #fff;
+  border-left-color: #d4a017;
+  outline: none;
 }
 
+.kartu:hover::after,
+.kartu:focus-visible::after {
+  color: #d4a017;
+  transform: translateY(-50%) translateX(4px);
+}
+
+/* label kecil: hanya dipakai di praktikum (Pre Test / Post Test) */
 .nomor {
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #d4a017;
-  color: #fff;
+  font-size: 0.7rem;
   font-weight: 700;
-  flex-shrink: 0;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #b8860b;
+  transition: color 0.2s;
+}
+
+.kartu:hover .nomor,
+.kartu:focus-visible .nomor {
+  color: #f0c040;
 }
 
 /* ===== Tombol kembali ===== */

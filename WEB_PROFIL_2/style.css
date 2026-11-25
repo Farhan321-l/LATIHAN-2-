@@ -54,7 +54,7 @@ ul { list-style: none; }
 
 /* ===== MENU ===== */
 .menu {
-  background: #0b3a7a;
+  background: #05090e;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -62,7 +62,7 @@ ul { list-style: none; }
 .menu a {
   display: inline-block;
   padding: 13px 20px;
-  color: #fff;
+  color: #0b2f5e;
   font-weight: 600;
   font-size: 14px;
 }
@@ -83,7 +83,7 @@ ul { list-style: none; }
   align-items: center;
   gap: 28px;
   background: linear-gradient(135deg, #0b4aa2, #0b4aa2);
-  color: #fff;
+  color: #ffffff;
   border-radius: 10px;
   padding: 32px;
   margin-bottom: 24px;
@@ -404,4 +404,695 @@ img {
   .kontak-grid {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* ==========================================================================
+   PERUBAHAN BARU
+   Blok di bawah ini sengaja diletakkan paling akhir supaya menimpa aturan
+   lama di atasnya. Struktur CSS di atas tidak diubah.
+   1. Navigasi   2. Jadwal kuliah   3. Sidebar (foto diganti monogram)
+   ========================================================================== */
+
+
+/* ---------- 1. NAVIGASI: bar melayang, sudut membulat ---------- */
+.menu {
+  background: linear-gradient(#f2f4f8 65%, rgba(242, 244, 248, 0));
+  padding: 10px 0 14px;
+}
+
+.menu .container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 6px;
+  width: calc(100% - 32px);   /* sejajar dengan isi halaman */
+  max-width: 1068px;
+  padding: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid #dde4ef;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(11, 47, 94, 0.10);
+}
+.menu .container::-webkit-scrollbar { display: none; }
+
+.menu a {
+  flex: 0 0 auto;
+  padding: 9px 18px;
+  border-radius: 10px;
+  color: #3a4658;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.menu a:hover {
+  background: #e8f0fb;
+  color: #0b3a7a;
+  box-shadow: inset 0 -3px 0 #d4a017;
+}
+.menu a:focus-visible {
+  outline: 2px solid #d4a017;
+  outline-offset: 2px;
+}
+
+/* Menu yang sedang dibuka (setelah diklik) ikut menyala */
+body:has(#beranda:target)  .menu a[href="#beranda"],
+body:has(#profil:target)   .menu a[href="#profil"],
+body:has(#kontak:target)   .menu a[href="#kontak"],
+body:has(#akademik:target) .menu a[href="#akademik"] {
+  background: #0b3a7a;
+  color: #fff;
+  box-shadow: inset 0 -3px 0 #d4a017;
+}
+
+section[id] { scroll-margin-top: 80px; }
+
+@media (max-width: 768px) {
+  .menu .container { flex-wrap: nowrap; }
+  .menu a { flex: 1 1 auto; text-align: center; padding: 9px 12px; }
+}
+
+
+/* ---------- 2. JADWAL KULIAH: lebih rapi ---------- */
+.jadwal-judul {
+  font-size: 1.05rem;
+  color: #0b2f5e;
+  margin: 6px 0 4px;
+}
+
+.jadwal-hari {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 26px 0 10px;
+  font-size: 0.98rem;
+  color: #0b2f5e;
+}
+.jadwal-hari::before {
+  content: "";
+  width: 6px;
+  height: 20px;
+  border-radius: 3px;
+  background: #d4a017;
+}
+
+.tabel-wrap {
+  background: #fff;
+  border: 1px solid #dde4ef;
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+.jadwal {
+  min-width: 720px;
+  table-layout: fixed;
+  font-size: 0.92rem;
+}
+
+/* lebar kolom tetap, jadi semua hari sejajar */
+.jadwal th:nth-child(1),
+.jadwal th:nth-child(2) { width: 78px; }
+.jadwal th:nth-child(3) { width: 106px; }
+.jadwal th:nth-child(5) { width: 190px; }
+
+.jadwal th {
+  padding: 11px 14px;
+  background: #0b3a7a;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.jadwal td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e8edf5;
+  line-height: 1.45;
+}
+.jadwal tbody tr:last-child td { border-bottom: 0; }
+
+.jadwal td:nth-child(1),
+.jadwal td:nth-child(2) {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: #0b3a7a;
+}
+.jadwal td:nth-child(2) { color: #667085; font-weight: 600; }
+.jadwal td:nth-child(3) { color: #667085; font-weight: 600; }
+.jadwal td:nth-child(4) { color: #1f2a3a; font-weight: 600; }
+.jadwal td:nth-child(5) { color: #667085; }
+
+/* Di HP: tiap jadwal menjadi kartu kecil, tidak perlu geser kiri-kanan */
+@media (max-width: 640px) {
+  .tabel-wrap { background: transparent; border: 0; overflow: visible; }
+
+  .jadwal { min-width: 0; display: block; background: transparent; }
+  .jadwal thead { display: none; }
+  .jadwal tbody { display: block; }
+
+  .jadwal tbody tr,
+  .jadwal tbody tr:nth-child(even) {
+    display: block;
+    margin-bottom: 12px;
+    padding: 6px 0;
+    background: #fff;
+    border: 1px solid #dde4ef;
+    border-left: 4px solid #d4a017;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(15, 40, 80, 0.06);
+  }
+
+  .jadwal td {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: 10px;
+    padding: 6px 14px;
+    border: 0;
+  }
+  .jadwal td::before {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #8a94a6;
+  }
+  .jadwal td:nth-child(1)::before { content: "Mulai"; }
+  .jadwal td:nth-child(2)::before { content: "Selesai"; }
+  .jadwal td:nth-child(3)::before { content: "Jenis"; }
+  .jadwal td:nth-child(4)::before { content: "Mata kuliah"; }
+  .jadwal td:nth-child(5)::before { content: "Ruang"; }
+}
+
+
+/* ---------- 3. SIDEBAR: foto dihapus, diganti banner + monogram ---------- */
+.foto-mini { display: none; }
+
+/* banner gradasi biru dengan cahaya emas di pojok */
+.profil-mini::before {
+  content: "";
+  display: block;
+  height: 80px;
+  margin: -18px -20px 0;
+  border-radius: 10px 10px 0 0;
+  background:
+    radial-gradient(circle at 90% 15%, rgba(212, 160, 23, 0.6), transparent 45%),
+    radial-gradient(circle at 8% 120%, rgba(255, 255, 255, 0.18), transparent 50%),
+    linear-gradient(135deg, #0b3a7a, #0b2f5e);
+}
+
+/* lingkaran inisial "MF" yang menimpa banner */
+.profil-mini .judul-kecil::before {
+  content: "MF";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  margin: -37px auto 12px;
+  border-radius: 50%;
+  background: #fff;
+  color: #0b3a7a;
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  border: 4px solid #d4a017;
+  box-shadow: 0 8px 18px rgba(11, 47, 94, 0.25);
+}
+
+
+/* ==========================================================================
+   PERUBAHAN TAHAP 2: kartu sidebar
+   Laporan Praktikum, Latihan, Mata Kuliah, Terhubung.
+   Tidak ada class baru di HTML: kartu dikenali dari isinya.
+   ========================================================================== */
+
+
+/* ---------- Judul kartu sidebar: garis bawah diganti penanda emas ---------- */
+aside .kartu:not(.profil-mini) .judul-kecil {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 0;
+  margin-bottom: 14px;
+  border-bottom: 0;
+}
+aside .kartu:not(.profil-mini) .judul-kecil::before {
+  content: "";
+  width: 5px;
+  height: 18px;
+  border-radius: 3px;
+  background: #d4a017;
+}
+
+
+/* ---------- Terhubung: dasar tombol (hanya tautan luar) ---------- */
+.tautan li { margin-bottom: 8px; }
+.tautan li:last-child { margin-bottom: 0; }
+
+.tautan a[href^="http"] {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border: 1px solid #e3e9f2;
+  border-radius: 12px;
+  background: #fff;
+  color: #0b2f5e;
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+              background 0.18s ease, border-color 0.18s ease;
+}
+.tautan a[href^="http"]:hover {
+  padding-left: 14px;            /* batalkan geseran lama, diganti transform */
+  color: #0b2f5e;
+  transform: translateX(4px);
+  box-shadow: 0 6px 16px rgba(11, 47, 94, 0.12);
+}
+.tautan a:focus-visible,
+.matkul li:focus-visible {
+  outline: 2px solid #d4a017;
+  outline-offset: 2px;
+}
+.tautan a[href^="http"]:active { transform: translateX(2px); }
+
+/* ---------- Terhubung: tombol media sosial dengan lencana warna ---------- */
+.tautan a[href^="http"]::before {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.tautan a[href^="http"]::after {
+  content: "\2197";            /* panah miring: menandai tautan keluar situs */
+  margin-left: auto;
+  font-size: 16px;
+  color: #8a94a6;
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+.tautan a[href^="http"]:hover::after { transform: translate(2px, -2px); color: #0b3a7a; }
+
+.tautan a[href*="github"]::before    { content: "GH"; background: #24292f; }
+.tautan a[href*="tiktok"]::before    { content: "TT"; background: #111827; box-shadow: -2px -2px 0 #25f4ee, 2px 2px 0 #fe2c55; }
+.tautan a[href*="instagram"]::before { content: "IG"; background: linear-gradient(45deg, #f09433, #dc2743 55%, #bc1888); }
+
+.tautan a[href*="github"]:hover    { border-color: #24292f; }
+.tautan a[href*="tiktok"]:hover    { border-color: #111827; }
+.tautan a[href*="instagram"]:hover { border-color: #dc2743; }
+
+
+
+/* ==========================================================================
+   PERUBAHAN TAHAP 3: Laporan Praktikum, Latihan, Mata Kuliah
+   Dibuat dari benda nyata di dunia kuliah:
+   laporan = lembar kertas bertumpuk, latihan = buku catatan bergaris,
+   mata kuliah = daftar isi yang tenang.
+   ========================================================================== */
+
+
+/* ---------- LAPORAN PRAKTIKUM: lembar kertas dengan sudut terlipat ---------- */
+.tautan li:has(a[href*="MODUL"]) { margin-bottom: 14px; }
+.tautan li:has(a[href*="MODUL"]):last-child { margin-bottom: 6px; }
+
+.tautan li a[href*="MODUL"] {
+  position: relative;
+  display: block;
+  padding: 13px 38px 13px 16px;
+  background: #fff;
+  border: 1px solid #c9d4e5;
+  border-radius: 3px;
+  color: #0b2f5e;
+  font-size: 14px;
+  font-weight: 700;
+  /* lembar kedua mengintip dari bawah */
+  box-shadow: 0 3px 0 -1px #fff, 0 4px 0 -1px #c9d4e5,
+              0 7px 0 -2px #fff, 0 8px 0 -2px #dbe3ef;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* sudut kanan atas yang terlipat */
+.tautan li a[href*="MODUL"]::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 22px;
+  height: 22px;
+  background: linear-gradient(225deg, #fff 0 50%, #e8cd80 50% 100%);
+  border-left: 1px solid #c9d4e5;
+  border-bottom: 1px solid #c9d4e5;
+  border-bottom-left-radius: 3px;
+  transition: width 0.2s ease, height 0.2s ease;
+}
+
+.tautan li a[href*="MODUL"]:hover {
+  padding-left: 16px;
+  background: #fff;
+  color: #0b3a7a;
+  transform: translateY(-3px) rotate(-0.6deg);
+  box-shadow: 0 3px 0 -1px #fff, 0 4px 0 -1px #c9d4e5,
+              0 7px 0 -2px #fff, 0 8px 0 -2px #dbe3ef,
+              0 12px 18px rgba(11, 47, 94, 0.14);
+}
+.tautan li a[href*="MODUL"]:hover::after { width: 30px; height: 30px; }
+
+
+/* ---------- LATIHAN: halaman buku catatan bergaris ---------- */
+.tautan:has(a[href*="PROFIL_"]) {
+  padding: 0 14px 0 58px;
+  border: 1px solid #dbe4f1;
+  border-radius: 6px;
+  background:
+    /* garis margin emas */
+    linear-gradient(90deg, transparent 0 46px, rgba(212, 160, 23, 0.85) 46px 48px, transparent 48px),
+    /* garis tulis */
+    repeating-linear-gradient(180deg, transparent 0 39px, #dbe4f1 39px 40px),
+    #fff;
+}
+.tautan:has(a[href*="PROFIL_"]) li {
+  height: 40px;
+  margin: 0;
+}
+
+.tautan li a[href*="PROFIL_"] {
+  display: inline-block;
+  padding: 0 4px;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+  color: #0b2f5e;
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 38px;
+  /* stabilo emas yang menyapu teks saat disorot */
+  background: linear-gradient(transparent 52%, rgba(212, 160, 23, 0.42) 52% 86%, transparent 86%)
+    no-repeat 0 0 / 0% 100%;
+  transition: background-size 0.28s ease;
+}
+.tautan li a[href*="PROFIL_"]:hover {
+  padding-left: 4px;
+  transform: none;
+  box-shadow: none;
+  color: #0b2f5e;
+  background: linear-gradient(transparent 52%, rgba(212, 160, 23, 0.42) 52% 86%, transparent 86%)
+    no-repeat 0 0 / 100% 100%;
+}
+
+
+/* ---------- MATA KULIAH: daftar isi yang tenang ---------- */
+.matkul li {
+  position: relative;
+  padding: 9px 0 9px 22px;
+  border: 0;
+  border-bottom: 1px solid #e9eef6;
+  border-radius: 0;
+  background: none;
+  color: #2b3340;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+.matkul li:last-child { border-bottom: 0; }
+
+/* penanda kecil emas yang memanjang saat disorot */
+.matkul li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background: #d4a017;
+  transform: translateY(-50%);
+  transition: width 0.2s ease;
+}
+.matkul li:hover {
+  padding-left: 30px;
+  color: #0b3a7a;
+  font-weight: 600;
+}
+.matkul li:hover::before { width: 18px; }
+
+
+/* ---------- Hormati pengguna yang mematikan animasi ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .tautan a, .tautan a::after, .matkul li, .matkul li::before { transition: none; }
+  .tautan a:hover, .tautan a:active { transform: none; }
+}
+
+
+/* ==========================================================================
+   PERUBAHAN TAHAP 4: kartu profil sidebar jadi kartu identitas mahasiswa
+   Menimpa banner gradasi + lingkaran inisial dari tahap 1.
+   Tanpa gradasi, tanpa cahaya, tanpa avatar bundar.
+   ========================================================================== */
+
+.profil-mini {
+  text-align: left;
+  border: 1px solid #cfd8e6;
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(11, 47, 94, 0.08),
+              0 14px 24px -14px rgba(11, 47, 94, 0.35);
+}
+
+/* pita biru rata di bagian atas kartu */
+.profil-mini { position: relative; }
+
+.profil-mini::before {
+  height: 54px;
+  margin: -18px -20px 18px;
+  border-radius: 13px 13px 0 0;
+  box-shadow: inset 0 -4px 0 #d4a017;
+  background: #0b3a7a;
+}
+
+/* lubang tali kartu (lanyard): satu lubang lonjong, bukan titik-titik */
+.profil-mini::after {
+  content: "";
+  position: absolute;
+  top: 19px;
+  left: 50%;
+  width: 52px;
+  height: 12px;
+  margin-left: -26px;
+  border-radius: 6px;
+  background: #f2f4f8;
+  box-shadow: inset 0 2px 3px rgba(11, 47, 94, 0.4);
+}
+
+/* lingkaran inisial dihapus */
+.profil-mini .judul-kecil::before { content: none; }
+
+.profil-mini .judul-kecil {
+  margin: 0 0 6px;
+  padding: 0;
+  border-bottom: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #0b2f5e;
+}
+
+.profil-mini p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #5b6678;
+}
+
+.profil-mini .badge {
+  margin-top: 16px;
+  padding: 3px 10px 3px 9px;
+  border: 1.5px solid #0b3a7a;
+  border-radius: 4px;
+  background: transparent;
+  color: #0b3a7a;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.profil-mini .badge::before {
+  content: none;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 7px;
+  background: #d4a017;
+}
+
+
+/* ==========================================================================
+   PERUBAHAN TAHAP 5: kartu profil bergambar dengan efek saat disorot
+   Foto Farhan memenuhi kartu. Saat kursor mendekat:
+   kartu terangkat dan mengembang, foto membesar dan berwarna penuh,
+   panel nama naik memperlihatkan detail, garis emas menyapu panel.
+   Menimpa kartu identitas dari tahap 4.
+   ========================================================================== */
+
+/* bersihkan pita dan lubang tali dari tahap 4 */
+aside .profil-mini::before,
+aside .profil-mini::after { content: none; }
+
+aside .profil-mini {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 250px;
+  max-width: 100%;
+  height: 310px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 18px;
+  background: #0b3a7a;
+  text-align: left;
+  box-shadow: 0 10px 24px -12px rgba(11, 47, 94, 0.5);
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+              box-shadow 0.5s ease;
+}
+aside .profil-mini:hover {
+  z-index: 2;
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 26px 40px -16px rgba(11, 47, 94, 0.55);
+}
+
+/* foto penuh satu kartu, sedikit pudar sampai disorot */
+aside .profil-mini .foto-mini {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  object-fit: cover;
+  object-position: center 18%;
+  filter: grayscale(0.45) contrast(1.03);
+  transform: scale(1);
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.6s ease;
+}
+aside .profil-mini:hover .foto-mini {
+  filter: grayscale(0) contrast(1.05);
+  transform: scale(1.04);
+}
+
+/* panel nama: tiga blok bersusun dengan warna sama, tampil sebagai satu panel */
+aside .profil-mini .judul-kecil,
+aside .profil-mini p,
+aside .profil-mini .badge {
+  position: relative;
+  z-index: 1;
+  background: #0b2f5e;
+  text-align: left;
+}
+
+aside .profil-mini .judul-kecil {
+  display: block;
+  margin: 0;
+  padding: 18px 18px 14px;
+  border: 0;
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  transition: padding-bottom 0.4s ease;
+}
+aside .profil-mini:hover .judul-kecil { padding-bottom: 4px; }
+
+/* garis emas di tepi atas panel, memanjang saat disorot */
+aside .profil-mini .judul-kecil::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 3px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: #d4a017;
+  transition: width 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+aside .profil-mini:hover .judul-kecil::before { width: 100%; }
+
+/* detail muncul saat disorot */
+aside .profil-mini p {
+  max-height: 0;
+  margin: 0;
+  padding: 0 18px;
+  overflow: hidden;
+  opacity: 0;
+  color: #c9d7ee;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  transition: max-height 0.45s ease, opacity 0.35s ease;
+}
+aside .profil-mini:hover p {
+  max-height: 64px;
+  opacity: 1;
+}
+
+aside .profil-mini .badge {
+  display: block;
+  max-height: 0;
+  margin: 0;
+  padding: 0 18px;
+  overflow: hidden;
+  opacity: 0;
+  border: 0;
+  border-radius: 0;
+  color: #e8cd80;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: max-height 0.45s ease, opacity 0.35s ease, padding 0.45s ease;
+}
+aside .profil-mini:hover .badge {
+  max-height: 52px;
+  padding: 10px 18px 16px;
+  opacity: 1;
+}
+
+/* layar sentuh tidak punya hover: tampilkan semua detail */
+@media (hover: none) {
+  aside .profil-mini .foto-mini { filter: none; }
+  aside .profil-mini .judul-kecil { padding-bottom: 4px; }
+  aside .profil-mini p { max-height: 64px; opacity: 1; }
+  aside .profil-mini .badge { max-height: 52px; padding: 10px 18px 16px; opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  aside .profil-mini { height: 310px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  aside .profil-mini,
+  aside .profil-mini .foto-mini,
+  aside .profil-mini .judul-kecil,
+  aside .profil-mini .judul-kecil::before,
+  aside .profil-mini p,
+  aside .profil-mini .badge { transition: none; }
+  aside .profil-mini:hover { transform: none; }
+  aside .profil-mini:hover .foto-mini { transform: scale(1); }
+}
+/* Garis biru di bawah header, seperti bar biru di atas */
+.header {
+  border-bottom: 10px solid #0b2f5e;
 }

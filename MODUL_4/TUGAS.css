@@ -1,0 +1,175 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #2b3340;
+  background: #f2f4f8;
+}
+
+.container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+main { flex: 1; }
+
+/* ===== HEADER ===== */
+.header { color: #fff; background: #0b2f5e; border-bottom: 4px solid #d4a017; }
+.foto-kampus { display: block; width: 100%; height: 260px; object-fit: cover; }
+.header .container { padding-top: 30px; padding-bottom: 30px; }
+.header h1 { font-size: 32px; line-height: 1.2; letter-spacing: -0.01em; }
+.header p { margin-top: 6px; color: #cfdcf0; }
+
+/* ===== PENCARIAN DAN FILTER ===== */
+.toolbar {
+  margin: 28px 0 24px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #e1e6ee;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(15, 40, 80, 0.06);
+}
+.toolbar label { display: block; margin-bottom: 6px; font-weight: 700; color: #0b2f5e; }
+.toolbar input {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  border: 2px solid #cdd7e6;
+  border-radius: 8px;
+}
+.toolbar input:focus { outline: none; border-color: #0b3a7a; box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.35); }
+
+.filter { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 13px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2b3340;
+  background: #fff;
+  border: 1.5px solid #cdd7e6;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.chip::before { content: ""; width: 8px; height: 8px; background: var(--warna, #d4a017); }
+.chip .n { font-weight: 700; color: #667085; }
+.chip:hover { border-color: var(--warna, #0b3a7a); }
+.chip:focus-visible { outline: 3px solid #d4a017; outline-offset: 2px; }
+.chip[aria-pressed="true"] { color: #fff; background: var(--warna, #0b2f5e); border-color: var(--warna, #0b2f5e); }
+.chip[aria-pressed="true"]::before { background: #fff; }
+.chip[aria-pressed="true"] .n { color: #fff; }
+
+.jumlah { margin-top: 12px; font-size: 13px; color: #667085; }
+
+/* ===== DAFTAR ALUMNI ===== */
+.daftar { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+
+.alumni {
+  position: relative;
+  padding: 24px 20px 18px;
+  background: #fff;
+  border: 1px solid #e1e6ee;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(15, 40, 80, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.alumni::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 36px;
+  height: 4px;
+  background: var(--warna);
+  border-radius: 0 0 3px 3px;
+  transition: width 0.35s ease, left 0.35s ease;
+}
+.kepala { display: flex; align-items: center; gap: 14px; }
+.inisial {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #fff;
+  background: var(--warna);
+  border-radius: 10px;
+  transition: transform 0.25s ease;
+}
+.alumni h2 { font-size: 16px; line-height: 1.3; color: #0b2f5e; }
+.jurusan { font-size: 13px; font-weight: 700; color: var(--warna); }
+.rincian { margin-top: 14px; padding-top: 12px; border-top: 1px solid #e8edf5; font-size: 14px; }
+.angkatan { margin-bottom: 2px; font-size: 12.5px; font-weight: 600; color: #667085; }
+
+/* ===== EFEK HOVER PADA PROFIL ALUMNI ===== */
+.alumni:hover { transform: translateY(-6px); box-shadow: 0 16px 28px -12px rgba(11, 47, 94, 0.35); }
+.alumni:hover::before { left: 0; width: 100%; border-radius: 0; }
+.alumni:hover .inisial { transform: rotate(-6deg) scale(1.08); }
+
+.kosong { margin-top: 24px; padding: 24px; text-align: center; color: #667085; background: #fff; border: 1px dashed #cdd7e6; border-radius: 12px; }
+
+/* ===== PILIHAN TAMPILAN: KARTU / DAFTAR ===== */
+.info { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; }
+.info .jumlah { margin-top: 0; }
+.tampilan { display: flex; overflow: hidden; border: 1px solid #cdd7e6; border-radius: 6px; }
+.tampilan button {
+  padding: 5px 14px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2b3340;
+  background: #fff;
+  border: 0;
+  cursor: pointer;
+}
+.tampilan button + button { border-left: 1px solid #cdd7e6; }
+.tampilan button[aria-pressed="true"] { color: #fff; background: #0b2f5e; }
+.tampilan button:focus-visible { outline: 3px solid #d4a017; outline-offset: -3px; }
+
+/* tampilan daftar: polos seperti tabel buku alumni */
+.daftar.mode-daftar { display: block; background: #fff; border: 1px solid #dde4ef; border-radius: 6px; }
+.baris {
+  display: grid;
+  grid-template-columns: 2fr 1.7fr 80px 2.2fr;
+  gap: 16px;
+  align-items: baseline;
+  padding: 11px 18px;
+  border-top: 1px solid #e8edf5;
+  font-size: 14px;
+}
+.baris:first-child { border-top: 0; }
+.baris b { font-weight: 700; color: #0b2f5e; }
+.baris span:nth-child(2) { font-weight: 600; color: var(--warna); }
+.baris .angka { font-variant-numeric: tabular-nums; }
+.baris:not(.judul-kolom):hover { background: #f4f7fb; }
+.baris.judul-kolom { font-size: 12px; font-weight: 700; background: #f7f9fc; border-radius: 6px 6px 0 0; }
+.baris.judul-kolom span { color: #667085; }
+
+@media (max-width: 700px) {
+  .baris { grid-template-columns: 1fr; gap: 2px; }
+  .baris.judul-kolom { display: none; }
+  .info { flex-direction: column; align-items: flex-start; }
+}
+
+/* ===== FOOTER ===== */
+.footer { margin-top: 40px; padding: 18px 0; font-size: 13px; text-align: center; color: #cfdcf0; background: #0b2f5e; }
+
+@media (max-width: 560px) {
+  .foto-kampus { height: 180px; }
+  .header h1 { font-size: 25px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .alumni, .alumni::before, .inisial, .chip { transition: none; }
+  .alumni:hover, .alumni:hover .inisial { transform: none; }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Post-Test 3</title>
+</head>
+<body>
+  <script>
+    let namaKampus = "Universitas Kuningan"; // global scope
+
+    function tampilkanNama() {
+      let namaMahasiswa = "Farhan"; // local scope
+      console.log("Di dalam fungsi, namaKampus    = " + namaKampus);
+      console.log("Di dalam fungsi, namaMahasiswa = " + namaMahasiswa);
+    }
+
+    tampilkanNama();
+
+    console.log("Di luar fungsi, namaKampus     = " + namaKampus);
+
+    try {
+      console.log(namaMahasiswa);
+    } catch (e) {
+      console.log("Di luar fungsi, namaMahasiswa -> " + e.name + ": " + e.message);
+    }
+  </script>
+</body>
+</html>

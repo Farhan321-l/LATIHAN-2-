@@ -1,0 +1,186 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f1f5fb;
+  color: #1e293b;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Header ===== */
+.header {
+  background: linear-gradient(135deg, #0b4ca3, #0a2f6b);
+  color: #fff;
+  text-align: center;
+  padding: 50px 20px 60px;
+  border-bottom: 5px solid #d4a017;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+
+.header p {
+  opacity: 0.9;
+}
+
+/* ===== Isi ===== */
+.wadah {
+  width: 100%;
+  max-width: 800px;
+  margin: -30px auto 40px;
+  padding: 0 16px;
+  flex: 1;
+}
+
+.judul {
+  color: #0b4ca3;
+  margin: 30px 0 16px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid #d4a017;
+  display: inline-block;
+}
+
+/* ===== Tombol utama ===== */
+.utama {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #1e293b;
+  box-shadow: 0 6px 20px rgba(11, 76, 163, 0.15);
+  border-left: 6px solid #d4a017;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.utama:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(11, 76, 163, 0.25);
+}
+
+.utama .ikon {
+  font-size: 2rem;
+}
+
+.utama strong {
+  display: block;
+  font-size: 1.15rem;
+  color: #0b4ca3;
+}
+
+.utama small {
+  color: #64748b;
+}
+
+/* ===== Kartu latihan ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+/* ===== Kartu latihan (gaya editorial) ===== */
+.kartu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  background: #fff;
+  padding: 16px 44px 16px 20px;
+  border-radius: 10px;
+  border-left: 3px solid #e2e8f0;
+  text-decoration: none;
+  color: #1e293b;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+/* panah kecil di kanan */
+.nomor[data-n]::before {
+  content: attr(data-n);
+  position: absolute;
+  right: 16px;
+  bottom: -6px;
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(11, 76, 163, 0.07);
+  pointer-events: none;
+}
+.kartu:hover .nomor[data-n]::before { color: rgba(255, 255, 255, 0.12); }
+
+.kartu:hover,
+.kartu:focus-visible {
+  transform: translateY(-3px);
+  background: #0b4ca3;
+  color: #fff;
+  border-left-color: #d4a017;
+  outline: none;
+}
+
+.kartu:hover::after,
+.kartu:focus-visible::after {
+  color: #d4a017;
+  transform: translateY(-50%) translateX(4px);
+}
+
+/* label kecil: hanya dipakai di praktikum (Pre Test / Post Test) */
+.nomor {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #b8860b;
+  transition: color 0.2s;
+}
+
+.kartu:hover .nomor,
+.kartu:focus-visible .nomor {
+  color: #f0c040;
+}
+
+/* ===== Tombol kembali ===== */
+.kembali {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 22px;
+  border: 2px solid #0b4ca3;
+  border-radius: 8px;
+  color: #0b4ca3;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+
+.kembali:hover {
+  background: #0b4ca3;
+  color: #fff;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: #0a2f6b;
+  color: #fff;
+  text-align: center;
+  padding: 16px;
+  font-size: 0.9rem;
+}
+
+/* ===== HP ===== */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 1.7rem;
+  }
+}

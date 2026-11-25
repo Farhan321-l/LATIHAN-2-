@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alumni Universitas Kuningan</title>
+  <link rel="stylesheet" href="TUGAS.css">
+</head>
+<body>
+
+  <header class="header">
+    <img class="foto-kampus" src="FKOM.webp" alt="Gedung Fakultas Ilmu Komputer Universitas Kuningan" onerror="this.hidden = true">
+    <div class="container">
+      <h1>Alumni Universitas Kuningan</h1>
+      <p>Cari alumni berdasarkan nama atau jurusan.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="toolbar">
+      <label for="cari">Cari alumni</label>
+      <input type="search" id="cari" placeholder="Ketik nama atau jurusan, misalnya: Sistem Informasi" autocomplete="off">
+      <div id="filter" class="filter" role="group" aria-label="Filter jurusan"></div>
+           <div class="info">
+        <p id="jumlah" class="jumlah" aria-live="polite"></p>
+        <div class="tampilan" role="group" aria-label="Pilih tampilan">
+          <button type="button" data-mode="kartu" aria-pressed="true">Kartu</button>
+          <button type="button" data-mode="daftar" aria-pressed="false">Daftar</button>
+        </div>
+      </div>
+    </div>
+
+    <section id="daftar" class="daftar" aria-label="Daftar alumni"></section>
+    <p id="kosong" class="kosong" hidden>Tidak ada alumni yang cocok dengan pencarian Anda.</p>
+  </main>
+
+  <footer class="footer">
+    <div class="container">&copy; 2026 Muhamad Farhan Shofiyudin</div>
+  </footer>
+
+  <script src="TUGAS.js"></script>
+</body>
+</html>
